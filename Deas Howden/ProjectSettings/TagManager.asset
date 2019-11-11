@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Machine1
   - Desk1
+  - Coll_wall
+  - Floor
+  - Start Pipe
+  - End Pipe
+  - activated
+  - unactivated
+  - connector
   layers:
   - Default
   - TransparentFX
