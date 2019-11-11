@@ -7,6 +7,8 @@ public static class GameData
 {
 
     public static GameMode currentGameMode = GameMode.PC;
+
+   [SerializeField] public static float cameraHeight  = 2f;
     
 
 

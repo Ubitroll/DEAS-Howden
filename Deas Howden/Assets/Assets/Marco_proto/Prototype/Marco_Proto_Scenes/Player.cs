@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
         initOffset = Camera.main.transform.position - transform.position;
         mainCamera = Camera.main;
         target = null;
+        currentRoom = GameObject.FindWithTag("MainRoom").GetComponent<Room>();
     }
 
     // Update is called once per frame
