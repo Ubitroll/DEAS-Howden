@@ -8,13 +8,12 @@ public class CameraScript : MonoBehaviour
     public static CameraType currentType = CameraType.ROOM_LOCKED;
     Vector3 rot;
     Vector3 currentPos;
-    [SerializeField] float height = 2;
     Room currentRoom;
     float cameraSpeed = 2.5f;
     // Start is called before the first frame update
     void Start()
     {
-
+        transform.position = new Vector3(transform.position.x,GameData.cameraHeight,transform.position.z);
     }
 
     // Update is called once per frame
