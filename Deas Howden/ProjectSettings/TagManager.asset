@@ -4,16 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Machine1
-  - Desk1
-  - Coll_wall
-  - Floor
+  - Start Pipe
+  - Reset_Area
   - Red_Button
   - Blue_Button
-  - Blue_Door
-  - Red_Door
-  - Reset_Area
   - player
+  - Red_Door
+  - Blue_Door
+  - End Pipe
+  - Ground
+  - machine
+  - Coll_wall
+  - Floor
+  - walll
+  - MainRoom
+  - Target
+  - resetFloor
   layers:
   - Default
   - TransparentFX
@@ -23,8 +29,8 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Destination
+  - 
+  - 
   - 
   - 
   - 

@@ -13,20 +13,27 @@ public class Player : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] Transform[] cameraPositions;
     Vector3 initOffset;
-    Camera mainCamera;
+    Camera mainCamera;   
 
     [SerializeField] Transform target;
 
+    //puzzle room start positions
+    public float prsX;
+    public float prsY;
+    public float prsZ;
 
+    public int machineState;
     //============================
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         initOffset = Camera.main.transform.position - transform.position;
         mainCamera = Camera.main;
         target = null;
+        currentRoom = GameObject.FindWithTag("MainRoom").GetComponent<Room>();
     }
 
     // Update is called once per frame
@@ -39,11 +46,13 @@ public class Player : MonoBehaviour
         {
             Debug.Log(prevRoom);
 
+        }       
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(machineState);
         }
-
-
-
-
+       
 
         // if (Input.GetKeyDown(KeyCode.E))
         // {
@@ -121,7 +130,7 @@ public class Player : MonoBehaviour
         bool hasHit = Physics.Raycast(ray, out hit);
         if (hasHit)
         {
-            if (hit.transform.tag == "Target")
+            if (hit.transform.tag == "machine")
             {
                 Debug.Log("enemy hit");
                 GetComponent<NavMeshAgent>().stoppingDistance = 1f;
@@ -138,14 +147,30 @@ public class Player : MonoBehaviour
     }
 
 
+    //Dylans floor script
+    //resets the player to the begining of the room if they touch the bad part of the floor
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "resetFloor" && machineState != 1)
+        {
+                transform.position = new Vector3(prsX, prsY, prsZ);
+                GetComponent<NavMeshAgent>().SetDestination(transform.position);
+           
+        }
+            
 
+    }
 
 
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Floor")
         {
-            //CameraScript.currentType = CameraScript.CameraType.PLAYER_LOCKED;
+
+            for (int a = 0; a < col.gameObject.transform.childCount; a++)
+            {
+                col.gameObject.transform.GetChild(a).gameObject.SetActive(true);
+            }
 
         }
     }

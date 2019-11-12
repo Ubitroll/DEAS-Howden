@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/DylanProto.unity
+- path: Assets/Assets/Marco_proto/Prototype/Marco_Proto_Scenes/Proto_1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

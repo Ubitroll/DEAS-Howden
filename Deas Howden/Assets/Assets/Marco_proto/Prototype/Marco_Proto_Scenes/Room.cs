@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     public Vector3 cameraPos;
 
     Vector3[] per = new Vector3[4];
+    [SerializeField] float cameraAngle;
 
 
     // Start is called before the first frame update
@@ -112,7 +113,7 @@ public class Room : MonoBehaviour
     public Vector3 GetCameraRoomPos(Transform obj)
     {
         MeshRenderer meshRenderer = obj.GetComponent<MeshRenderer>();
-        return meshRenderer.bounds.max + new Vector3(0, 3, 0);
+        return meshRenderer.bounds.max + new Vector3(0.2f, GameData.cameraHeight , 0.2f);
     }
 
 

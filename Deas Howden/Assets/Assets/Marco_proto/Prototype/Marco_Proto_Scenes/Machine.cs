@@ -17,9 +17,10 @@ public class Machine : MonoBehaviour
     }
     void Update()
     {
+
         //currentState = CheckStatus();
         timer.Update();
-        Debug.Log(timer.TimeLeft());
+       // Debug.Log(timer.TimeLeft());
         if (timer.timeLeft < 0)
         {
             currentState = MachineState.BROKEN;
@@ -31,15 +32,16 @@ public class Machine : MonoBehaviour
             case MachineState.WORKING:
 
                 transform.GetChild(0).gameObject.SetActive(false);
-
+                GameObject.Find("Player").GetComponent<Player>().machineState = 1;
                 break;
 
             case MachineState.BROKEN:
                 transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.Find("Player").GetComponent<Player>().machineState = 3;
                 break;
 
             case MachineState.BREAKING:
-
+                GameObject.Find("Player").GetComponent<Player>().machineState = 2;
                 break;
 
         }
