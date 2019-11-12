@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Machine1
   - Desk1
+  - Coll_wall
+  - Floor
+  - Red_Button
+  - Blue_Button
+  - Blue_Door
+  - Red_Door
+  - Reset_Area
+  - player
   layers:
   - Default
   - TransparentFX
