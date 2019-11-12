@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Start Pipe
+  - End Pipe
+  - unactivated
+  - connector
+  - activated
+  - Ground
+  - Coll_wall
+  - Floor
+  - MainRoom
+  - machine
+  - walll
   layers:
   - Default
   - TransparentFX

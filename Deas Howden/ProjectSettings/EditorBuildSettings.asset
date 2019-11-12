@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Assets/Marco_proto/Prototype/Marco_Proto_Scenes/Proto_Menu.unity
+    guid: 6e4ec9fd8c74b604cac3c885903f2fc1
+  - enabled: 1
+    path: Assets/Assets/Marco_proto/Prototype/Marco_Proto_Scenes/Proto_1.unity
+    guid: 97fcdf0630d23704d869c660ca95113f
   m_configObjects: {}

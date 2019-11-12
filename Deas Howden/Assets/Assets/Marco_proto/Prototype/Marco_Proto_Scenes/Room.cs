@@ -113,7 +113,7 @@ public class Room : MonoBehaviour
     public Vector3 GetCameraRoomPos(Transform obj)
     {
         MeshRenderer meshRenderer = obj.GetComponent<MeshRenderer>();
-        return meshRenderer.bounds.max + new Vector3(0.5f, GameData.cameraHeight , 0.5f);
+        return meshRenderer.bounds.max + new Vector3(0.2f, GameData.cameraHeight , 0.2f);
     }
 
 

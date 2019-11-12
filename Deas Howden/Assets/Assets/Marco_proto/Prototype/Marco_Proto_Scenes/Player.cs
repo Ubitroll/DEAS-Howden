@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     Vector3 initOffset;
     Camera mainCamera;
 
+
+
     [SerializeField] Transform target;
 
 
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         initOffset = Camera.main.transform.position - transform.position;
         mainCamera = Camera.main;
         target = null;
@@ -122,7 +125,7 @@ public class Player : MonoBehaviour
         bool hasHit = Physics.Raycast(ray, out hit);
         if (hasHit)
         {
-            if (hit.transform.tag == "Target")
+            if (hit.transform.tag == "machine")
             {
                 Debug.Log("enemy hit");
                 GetComponent<NavMeshAgent>().stoppingDistance = 1f;
@@ -146,7 +149,11 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Floor")
         {
-            //CameraScript.currentType = CameraScript.CameraType.PLAYER_LOCKED;
+
+            for (int a = 0; a < col.gameObject.transform.childCount; a++)
+            {
+                col.gameObject.transform.GetChild(a).gameObject.SetActive(true);
+            }
 
         }
     }

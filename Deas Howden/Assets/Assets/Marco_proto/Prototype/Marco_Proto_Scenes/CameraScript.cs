@@ -9,11 +9,11 @@ public class CameraScript : MonoBehaviour
     Vector3 rot;
     Vector3 currentPos;
     Room currentRoom;
-    float cameraSpeed = 2.5f;
+    float cameraSpeed = 3f;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(transform.position.x,GameData.cameraHeight,transform.position.z);
+        transform.position = new Vector3(transform.position.x, GameData.cameraHeight, transform.position.z);
     }
 
     // Update is called once per frame
@@ -37,8 +37,8 @@ public class CameraScript : MonoBehaviour
         }
 
         Debug.Log(currentType);
+   
 
-        
 
     }
 
@@ -62,5 +62,46 @@ public class CameraScript : MonoBehaviour
     public void MouveDown()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y - 1 * Time.deltaTime, transform.position.z);
+    }
+
+    public void CollapseWalls()
+    {
+        Ray[] ray = new Ray[5];
+        for (int x = 0; x < ray.Length; x++)
+        {
+            if (x < 3)
+            {
+                ray[x] = Camera.main.ScreenPointToRay(new Vector2(-50 * x, -50));
+                RaycastHit hit;
+                bool hasHit = Physics.Raycast(ray[x], out hit);
+                if (hasHit)
+                {
+                    if (hit.collider.tag == "walll")
+                    {
+                       hit.transform.gameObject.SetActive(false);
+                    }
+                   
+                }
+
+            }
+            else
+            {
+                ray[x] = Camera.main.ScreenPointToRay(new Vector2(50 * x, -50));
+                RaycastHit hit;
+                bool hasHit = Physics.Raycast(ray[x], out hit);
+                if (hasHit)
+                {
+                    if (hit.collider.tag == "walll")
+                    {
+                       hit.transform.gameObject.SetActive(false);
+                    }
+                   
+                }
+            }
+
+        }
+
+
+
     }
 }
