@@ -138,7 +138,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &20289721
 BoxCollider:
@@ -604,7 +604,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &202761216
 BoxCollider:
@@ -1291,7 +1291,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &444688673
 BoxCollider:
@@ -1788,7 +1788,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &539375206
 BoxCollider:
@@ -2011,12 +2011,12 @@ GameObject:
   - component: {fileID: 608125478}
   - component: {fileID: 608125477}
   - component: {fileID: 608125476}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &608125476
 BoxCollider:
@@ -2109,7 +2109,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &622700800
 BoxCollider:
@@ -2455,7 +2455,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &807598780
 BoxCollider:
@@ -2560,7 +2560,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &820111492
 BoxCollider:
@@ -2665,7 +2665,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &832993677
 BoxCollider:
@@ -2770,7 +2770,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &907694305
 BoxCollider:
@@ -3153,7 +3153,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &988749346
 BoxCollider:
@@ -3258,7 +3258,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1013208562
 BoxCollider:
@@ -3369,7 +3369,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1102123210
 BoxCollider:
@@ -3788,7 +3788,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1208471635
 BoxCollider:
@@ -3961,7 +3961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243266345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5541077, y: -0.7690375, z: -0.9082305}
+  m_LocalPosition: {x: 2.5541077, y: -0.8, z: -0.9082305}
   m_LocalScale: {x: 9.140544, y: 0.6093696, z: 9.140544}
   m_Children: []
   m_Father: {fileID: 1390392846}
@@ -4510,12 +4510,12 @@ GameObject:
   - component: {fileID: 1366713223}
   - component: {fileID: 1366713222}
   - component: {fileID: 1366713221}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1366713221
 BoxCollider:
@@ -4774,7 +4774,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1528161802
 BoxCollider:
@@ -5063,7 +5063,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1628495638
 BoxCollider:
@@ -5162,12 +5162,12 @@ GameObject:
   - component: {fileID: 1688828227}
   - component: {fileID: 1688828226}
   - component: {fileID: 1688828225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1688828225
 BoxCollider:
@@ -5352,7 +5352,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1774294047
 BoxCollider:
@@ -5871,7 +5871,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &2044238918
 BoxCollider:
@@ -5976,7 +5976,7 @@ GameObject:
   m_TagString: resetFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &2123330012
 BoxCollider:
