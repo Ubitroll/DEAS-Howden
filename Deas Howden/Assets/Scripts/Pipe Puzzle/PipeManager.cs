@@ -9,18 +9,10 @@ public class PipeManager : MonoBehaviour
     Color inactive = Color.grey;
     Color start = Color.green;
     Color end = Color.red;
-    public bool pipeActive = false;
+    public bool isActive = false;
     public Collider pipeCollder;
     public GameObject pipeConnector1;
     public GameObject pipeConnector2;
-    
-
-    enum WinState
-    {
-        Win,
-        Fail,
-        Playing
-    }
 
 
     // Start is called before the first frame update
@@ -29,100 +21,119 @@ public class PipeManager : MonoBehaviour
         // If its the starting pipe then make it produce water
         if (this.tag == "Start Pipe")
         {
-            pipeActive = true;
+            isActive = true;
         }
-        UpdateColour();
+
+        // apply the connector tag to the connecting pieces
+        pipeConnector1.tag = "connector";
+        pipeConnector2.tag = "connector";
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If it isnt the Starting pipe
+        if (this.tag != "Start Pipe")
+        {
+            // If it isnt the Ending pipe
+            if (this.tag != "End Pipe")
+            {
+                // If active then apply the tag activated
+                if (isActive == true)
+                {
+                    this.tag = "activated";
+                }
+                // Else if not active then apply the tag unactivated
+                else if (isActive == false)
+                {
+                    this.tag = "unactivated";
+                }
+            }
+        }
+
         // Create 2 raycast rays. One out each of the pipes connectors
         RaycastHit hit1;
         RaycastHit hit2;
-        
-        Ray ray1 = new Ray(pipeConnector1.transform.position, pipeConnector1.transform.TransformDirection(Vector3.forward));
-        Ray ray2 = new Ray(pipeConnector2.transform.position, pipeConnector2.transform.TransformDirection(Vector3.forward));
-
-        WinState currentState = WinState.Playing;
-
-        Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward));
-        Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.back));
+        Ray connector1Ray = new Ray(pipeConnector1.transform.position, pipeConnector1.transform.TransformDirection(Vector3.forward));
+        Ray connector2Ray = new Ray(pipeConnector2.transform.position, pipeConnector2.transform.TransformDirection(Vector3.forward));
 
         // If its not the starting pipe
         if (this.tag != "Start Pipe")
         {
             // If the first connector collides with something within the range of 5
-            if (Physics.Raycast(ray1, out hit1, 15))
+            if (Physics.Raycast(connector1Ray, out hit1, 5))
             {
-                if (Physics.Raycast(ray2, out hit2, 15))
+                // If the collided object has the tag connector
+                if (hit1.collider.gameObject.tag == "connector")
                 {
-                    if (hit1.collider.tag == "Midpipe" || hit2.collider.tag == "Midpipe")
-                    { 
-                        // If the pipe it is connected to is active
-                        if (hit1.collider.GetComponent<PipeManager>().pipeActive == true)
-                        {
-                            // Make this pipe active
-                            this.pipeActive = true;
-                        }
-                        else if (hit2.collider.GetComponent<PipeManager>().pipeActive == true)
-                        {
-                            // Make this pipe active
-                            this.pipeActive = true;
-                        }
+                    // If the pipe it is connected to is active
+                    if (hit1.collider.GetComponentInParent<PipeManager>().isActive == true)
+                    {
+                        // Make this pipe active
+                        this.isActive = true;
                     }
                 }
             }
             // Else the pipe should be inactive
             else
             {
-                this.pipeActive = false;
+                this.isActive = false;
             }
-        }
-        // If its the start pipe
-        if (this.tag == "End Pipe")
-        {
-            // If it is active then the player wins
-            if (this.pipeActive == true)
+            // If the second connector collides with something within the range of 5
+            if (Physics.Raycast(connector2Ray, out hit2, 5))
             {
-                currentState = WinState.Win;
+                // If the collided object has the tag connector
+                if (hit2.collider.gameObject.tag == "connector")
+                {
+                    
+                    if (hit2.collider.GetComponentInParent<PipeManager>().isActive == true)
+                    {
+                        this.isActive = true;
+                    }
+                }
+            }
+            else
+            {
+                this.isActive = false;
             }
         }
+        
+
         UpdateColour();
     }
 
     
-    // Updates the colour of the pipe
+
     void UpdateColour()
     {
-        // If its the start pipe set up its colours
         if (this.tag == "Start Pipe")
         {
             GetComponent<Renderer>().material.color = active;
             pipeConnector1.GetComponent<Renderer>().material.color = start;
         }
-        // If the water is flowing set to blue
-        if (this.pipeActive == true)
+
+        if (this.tag == "activated")
         {
             GetComponent<Renderer>().material.color = active;
         }
-        // If thte water isn't flowing set to grey
-        if (this.pipeActive == false)
+
+        if (this.tag == "unactivated")
         {
             GetComponent<Renderer>().material.color = inactive;
         }
-        // If its tthe end pipe set up its colours
+
         if (this.tag == "End Pipe")
         {
-            if (this.pipeActive == true)
+            pipeConnector1.GetComponent<Renderer>().material.color = end;
+            if (this.isActive == true)
             {
                 GetComponent<Renderer>().material.color = active;
             }
-            else if(this.pipeActive == false)
+            else
             {
                 GetComponent<Renderer>().material.color = inactive;
             }
-            pipeConnector1.GetComponent<Renderer>().material.color = end;
+            
         }
     }
 

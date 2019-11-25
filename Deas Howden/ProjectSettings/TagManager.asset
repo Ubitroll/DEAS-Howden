@@ -20,7 +20,6 @@ TagManager:
   - MainRoom
   - Target
   - resetFloor
-  - Midpipe
   layers:
   - Default
   - TransparentFX
