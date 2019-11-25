@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Assets/Marco_proto/Prototype/Marco_Proto_Scenes/Proto_1.unity
+- path: 'Assets/Scenes/Pipe Puzzles/Easy Puzzle #1.unity'
   isLoaded: 1
   isActive: 1
   isSubScene: 0

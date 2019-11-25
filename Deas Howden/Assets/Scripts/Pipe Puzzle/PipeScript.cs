@@ -22,8 +22,10 @@ public class PipeScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                
-                hit.transform.Rotate(0, 90, 0);
+                if (hit.collider.tag == "Midpipe")
+                {
+                    hit.transform.Rotate(0, 90, 0);
+                }
             }
         }
     } 
