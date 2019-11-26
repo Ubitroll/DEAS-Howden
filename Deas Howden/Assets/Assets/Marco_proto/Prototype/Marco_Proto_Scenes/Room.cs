@@ -84,7 +84,7 @@ public class Room : MonoBehaviour
 
         for (int x = 0; x < 4; x++)
         {
-            if (x == 3) Gizmos.DrawLine(per[x] + new Vector3(0, 0.2f, 0), per[0] + new Vector3(0, 0.2f, 0)); else Gizmos.DrawLine(per[x] + new Vector3(0, 0.2f, 0), per[x + 1] + new Vector3(0, 0.2f, 0));
+            if (x == 3) Gizmos.DrawLine(per[x] + new Vector3(0, -0.2f, 0), per[0] + new Vector3(0, -0.2f, 0)); else Gizmos.DrawLine(per[x] + new Vector3(0, -0.2f, 0), per[x + 1] + new Vector3(0, -0.2f, 0));
 
         }
 
@@ -113,7 +113,7 @@ public class Room : MonoBehaviour
     public Vector3 GetCameraRoomPos(Transform obj)
     {
         MeshRenderer meshRenderer = obj.GetComponent<MeshRenderer>();
-        return meshRenderer.bounds.max + new Vector3(0.2f, GameData.cameraHeight , 0.2f);
+        return meshRenderer.bounds.min + new Vector3(meshRenderer.bounds.size.x,0,0) + new Vector3(-0.5f, GameData.cameraHeight , 0.5f);
     }
 
 

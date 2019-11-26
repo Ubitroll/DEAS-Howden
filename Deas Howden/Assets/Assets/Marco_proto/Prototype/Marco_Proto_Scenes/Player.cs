@@ -130,10 +130,10 @@ public class Player : MonoBehaviour
         bool hasHit = Physics.Raycast(ray, out hit);
         if (hasHit)
         {
-            if (hit.transform.tag == "machine")
+            if (hit.transform.tag == "Ground")
             {
                 Debug.Log("enemy hit");
-                GetComponent<NavMeshAgent>().stoppingDistance = 1f;
+                GetComponent<NavMeshAgent>().stoppingDistance = 0f;
                 GetComponent<NavMeshAgent>().destination = hit.point;
             }
             else
