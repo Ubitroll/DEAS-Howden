@@ -24,6 +24,7 @@ public class Machine : MonoBehaviour
         if (timer.timeLeft < 0)
         {
             currentState = MachineState.BROKEN;
+            
 
         }
 

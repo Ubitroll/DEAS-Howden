@@ -21,6 +21,9 @@ TagManager:
   - Target
   - resetFloor
   - Midpipe
+  - Machine1
+  - Desk1
+  - Machine
   layers:
   - Default
   - TransparentFX

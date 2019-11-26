@@ -10,7 +10,7 @@ public class SimpleAI : MonoBehaviour
     public GameObject machine;
 
     // AI States
-    protected enum state 
+    protected enum state
     {
         Working,
         Fixing
@@ -55,6 +55,7 @@ public class SimpleAI : MonoBehaviour
                     agent.SetDestination(machine.transform.position);
                     currentState = state.Fixing;
                 }
+
             }
         }
 
@@ -76,5 +77,19 @@ public class SimpleAI : MonoBehaviour
                 }
             }
         }
+
+        //ADDED
+           switch (machine.GetComponent<Machine>().currentState)
+            {
+                case Machine.MachineState.WORKING:
+                currentState = state.Working;
+
+                    break;
+                case Machine.MachineState.BROKEN:
+                currentState = state.Fixing;
+                    break;
+            }
+        
+
     }
 }

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] Transform[] cameraPositions;
     Vector3 initOffset;
-    Camera mainCamera;   
+    Camera mainCamera;
 
     [SerializeField] Transform target;
 
@@ -23,17 +23,18 @@ public class Player : MonoBehaviour
     public float prsZ;
 
     public int machineState;
+   
     //============================
 
 
     // Start is called before the first frame update
     void Start()
     {
-
         initOffset = Camera.main.transform.position - transform.position;
         mainCamera = Camera.main;
         target = null;
         currentRoom = GameObject.FindWithTag("MainRoom").GetComponent<Room>();
+       
     }
 
     // Update is called once per frame
@@ -46,13 +47,25 @@ public class Player : MonoBehaviour
         {
             Debug.Log(prevRoom);
 
-        }       
+        }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(machineState);
         }
+
        
+        //if (machines != null)
+        //{
+        //    foreach (GameObject machine in machines)
+        //    {
+
+        //        if (machine.GetComponent<Machine>().currentState == Machine.MachineState.BROKEN)
+        //        {
+        //            GameData.machines.Add(machine.GetComponent<Machine>());
+        //        }
+        //    }
+        //}
 
         // if (Input.GetKeyDown(KeyCode.E))
         // {
@@ -153,11 +166,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "resetFloor" && machineState != 1)
         {
-                transform.position = new Vector3(prsX, prsY, prsZ);
-                GetComponent<NavMeshAgent>().SetDestination(transform.position);
-           
+            transform.position = new Vector3(prsX, prsY, prsZ);
+            GetComponent<NavMeshAgent>().SetDestination(transform.position);
+
         }
-            
+
 
     }
 
