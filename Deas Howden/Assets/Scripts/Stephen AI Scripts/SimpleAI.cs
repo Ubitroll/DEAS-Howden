@@ -17,10 +17,11 @@ public class SimpleAI : MonoBehaviour
     }
 
     // Time it takes to fix a machine
-    private const float fixTime = 5f;
+    private const float angerTime = 5f;
+    private const float fixTime = 15f;
 
     // Time untill moveing
-    private float timeLeftUntilFix = fixTime;
+    private float timeLeftUntilFix = angerTime;
     private float timeLeftUntilWork = fixTime;
 
     // Denotes the current state
@@ -44,18 +45,24 @@ public class SimpleAI : MonoBehaviour
             float distanceToDesk = (desk.transform.position - this.transform.position).magnitude;
             if (distanceToDesk <= 4)
             {
-                timeLeftUntilFix -= Time.deltaTime;
-                if (timeLeftUntilFix <= 0.0f)
+                if (machine.GetComponent<Machine>().currentState == Machine.MachineState.BROKEN)
                 {
-                    timeLeftUntilFix = fixTime;
-                }
 
-                if (timeLeftUntilFix == fixTime)
-                {
-                    agent.SetDestination(machine.transform.position);
-                    currentState = state.Fixing;
-                }
 
+                    timeLeftUntilFix -= Time.deltaTime;
+                    if (timeLeftUntilFix <= 0.0f)
+                    {
+                        timeLeftUntilFix = angerTime;
+                    }
+
+                    if (timeLeftUntilFix == angerTime)
+                    {
+                        
+                        agent.SetDestination(machine.transform.position);
+                        agent.stoppingDistance = 3f;
+                        currentState = state.Fixing;
+                    }
+                }
             }
         }
 
@@ -72,23 +79,25 @@ public class SimpleAI : MonoBehaviour
 
                 if (timeLeftUntilWork == fixTime)
                 {
+                    machine.GetComponent<Machine>().currentState = Machine.MachineState.WORKING;
+                    machine.GetComponent<Machine>().timer.timeLeft = Random.Range(8,16);
                     agent.SetDestination(desk.transform.position);
                     currentState = state.Working;
                 }
             }
         }
 
-        //ADDED
-           switch (machine.GetComponent<Machine>().currentState)
-            {
-                case Machine.MachineState.WORKING:
-                currentState = state.Working;
+        ////ADDED
+        //   switch (machine.GetComponent<Machine>().currentState)
+        //    {
+        //        case Machine.MachineState.WORKING:
+        //        currentState = state.Working;
 
-                    break;
-                case Machine.MachineState.BROKEN:
-                currentState = state.Fixing;
-                    break;
-            }
+        //            break;
+        //        case Machine.MachineState.BROKEN:
+        //        currentState = state.Fixing;
+        //            break;
+        //    }
         
 
     }

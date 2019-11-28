@@ -6,7 +6,7 @@ public class Machine : MonoBehaviour
 {
     public enum MachineState { BROKEN, BREAKING, WORKING }
     public MachineState currentState;
-    Timer timer;
+    public Timer timer;
     float lifeTime;
 
     void Start()
