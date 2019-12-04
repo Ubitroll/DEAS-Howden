@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Machine : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Machine : MonoBehaviour
     public MachineState currentState;
     public Timer timer;
     float lifeTime;
+    [SerializeField] Scrollbar health;
+    
 
     void Start()
     {
@@ -17,15 +20,13 @@ public class Machine : MonoBehaviour
     }
     void Update()
     {
-
+        health.size = (timer.timeLeft * lifeTime) / 100;
         //currentState = CheckStatus();
         timer.Update();
        // Debug.Log(timer.TimeLeft());
         if (timer.timeLeft < 0)
         {
             currentState = MachineState.BROKEN;
-            
-
         }
 
         switch (currentState)
